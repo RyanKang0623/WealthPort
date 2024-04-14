@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WealthPort Inc.</title>
+<style>
+  body { margin: 0; font-family: 'Arial', sans-serif; color: #fff; background-color: #123456; }
+  .header { background-color: #123456; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; }
+  .header img { width: 50px; height: auto; }
+  .header h1 { margin: 0; color: #fff; }
+  .nav { background-color: #fff; padding: 10px 40px; display: flex; justify-content: flex-end; }
+  .nav a { color: #123456; margin-left: 20px; text-decoration: none; font-size: 16px; }
+  .nav a:hover { text-decoration: underline; }
+  .content {display: flex; flex-direction: column; align-items: center; padding: 40px 20px; background-color: #fff; color: #000; min-height: 500px;}
+  .section {width: 100%; max-width: 800px; margin-bottom: 20px; padding: 20px; color: #123456; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out;}
+  @media screen and (min-width: 768px) {
+    .section {
+      padding: 40px;
+    }
+  }
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .section.visible {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  .footer { background-color: #123456; color: #fff; text-align: center; padding: 20px 40px; }
+  .hidden { display: none; }
+  
+  /* Services */
+  .services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px; /* Adjust based on your layout width */
+  margin: auto; /* Center the grid */
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+  justify-content: center; /* Center the content vertically */
+  height: 150px; /* Height of the service box */
+  background-color: #f0f0f0; /* Background color for the service box */
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+  transform: scale(1.05); /* Slightly scale the service items on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+}
+
+.service-icon {
+  width: 100%; /* Full width of the service box */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 100px; /* Maximum height of the icon */
+}
+
+.service-title {
+  margin-top: 10px; /* Space between icon and title */
+  font-size: 1rem; /* Title font size */
+  color: #123456; /* Title color */
+}
+  /* Team */
+  .team-row { display: flex; justify-content: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+  .profile-card { background-color: #fff; margin: 20px; padding: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: flex; flex-basis: calc(50% - 40px); box-sizing: border-box; align-items: center; }
+  .profile-photo { width: 150px; height: 150px; margin-right: 30px; }
+  .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .profile-info { flex-grow: 1; }
+  .profile-info h3 { color: #123456; margin: 0 0 15px 0; }
+  .profile-info p { color: #666; margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="/Users/jungsikkang/Desktop/website/Logo2.png" alt="Wealthport Logo">
+  <h1>WealthPort Inc.</h1>
+</div>
+
+<div class="nav">
+  <a href="#" onclick="showPage('home')">Home</a>
+  <a href="#" onclick="showPage('about')">About Us</a>
+  <a href="#" onclick="showPage('services')">Our Services</a>
+  <a href="#" onclick="showPage('team')">Team Members</a>
+</div>
+
+<div class="content">
+  <div id="home" class="page">
+    <div id="revolutionize-ai" class="section">
+      <h2>Revolutionizing Wealth Management with AI</h2>
+      <p>Experience next-generation financial advisory tailored for high net-worth individuals.</p>
+    </div>
+    <div id="ai-solutions" class="section">
+      <h2>AI-Driven Solutions</h2>
+      <p>Our AI-driven solutions offer personalized investment strategies, robust portfolio management, and efficient communication—all designed to outperform the market and enhance your wealth with precision.</p>
+    </div>
+    <div id="join-us" class="section">
+      <h2>Join Our Community</h2>
+      <p>Join us to navigate your financial future with cutting-edge technology and a community of like-minded clients.</p>
+    </div>
+  </div>
+
+  <div id="about" class="page hidden">
+    <div class="section">
+      <h2>Innovative Platform</h2>
+      <p>Harnessing AI for a transformative wealth management experience, our platform offers nuanced client insights and precise asset price forecasting, enabling smarter, data-driven decisions.</p>
+    </div>
+    <div class="section">
+      <h2>Client-Centric Approach</h2>
+      <p>We focus on lowering acquisition costs while maintaining high accuracy in client assessments and investment preferences, ensuring a tailored strategy for every individual.</p>
+    </div>
+    <div class="section">
+      <h2>Investment Precision</h2>
+      <p>From accurate portfolio proposals to alternative investment opportunities, our technology leads in finding the right asset allocation and investment styles for our discerning clients.</p>
+    </div>
+    <div class="section">
+      <h2>Support and Education</h2>
+      <p>Beyond investments, we provide essential tax advisory, education, and customer support, facilitating seamless transactions and empowering clients with crypto asset ventures.</p>
+    </div>
+  </div>
+
+  <div id="services" class="page hidden">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <!-- Service Item -->
+      <a href="Services/news-page.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/1.png" alt="News" class="service-icon">
+        <span class="service-title">News</span>
+      </a>
+      <a href="Services/personal-assistance.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/2.png" alt="Personal Assistance" class="service-icon">
+        <span class="service-title">Personal Assistance</span>
+      </a>
+      <a href="Services/investment-brainstorming.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/3.png" alt="Investment Brainstorming" class="service-icon">
+        <span class="service-title">Investment Brainstorming</span>
+      </a>
+      <a href="Services/private-deals.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/4.png" alt="Private Deals" class="service-icon">
+        <span class="service-title">Private Deals</span>
+      </a>
+      <a href="Services/portfolio-proposal.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/5.png" alt="Portfolio Proposal" class="service-icon">
+        <span class="service-title">Portfolio Proposal</span>
+      </a>
+      <a href="Services/tax-advisory.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/6.png" alt="Tax Advisory" class="service-icon">
+        <span class="service-title">Tax Advisory</span>
+      </a>
+      <a href="Services/investment-strategies.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/7.png" alt="Investment Strategies" class="service-icon">
+        <span class="service-title">Investment Strategies</span>
+      </a>
+      <a href="Services/account-management.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/8.png" alt="Account Management" class="service-icon">
+        <span class="service-title">Account Management</span>
+      </a>
+      <a href="Services/support.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/9.png" alt="Support" class="service-icon">
+        <span class="service-title">Support</span>
+      </a>
+      <a href="Services/client-assessment.html" class="service-item">
+        <img src="/Users/jungsikkang/Desktop/website/Services/image/10.png" alt="Client Assessment" class="service-icon">
+        <span class="service-title">Client Assessment</span>
+      </a>
+      <!-- Repeat for each service, with appropriate href and background-image -->
+    </div>
+  </div>
+
+  <div id="team" class="page hidden">
+    <h2>Our Team Members</h2>
+    <div class="team-row">
+      <!-- Team Member Profile Card -->
+      <div class="profile-card">
+        <div class="profile-photo">
+          <img src="path_to_member_photo.png" alt="Francis Kim">
+        </div>
+        <div class="profile-info">
+          <h3>김한결 Francis Kim</h3>
+          <p><strong>Founder & CEO</strong></p>
+          <p> DB자산운용 헤지펀드, 키움은행 IPO, <br>키움은행 리서치</p>
+          <p> University of Georgia, Korea University MBA</p>
+        </div>
+      </div>
+      <!-- Repeat for each team member -->
+      <div class="profile-card">
+        <div class="profile-photo">
+          <img src="path_to_member_photo.png" alt="Ivan Rachev">
+        </div>
+        <div class="profile-info">
+          <h3>Ivan Rachev</h3>
+          <p><strong>CTO</strong></p>
+          <p> Prive Technologies, GE</p>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-photo">
+          <img src="path_to_member_photo.png" alt="Chris Hong">
+        </div>
+        <div class="profile-info">
+          <h3>홍순일 Chris Hong</h3>
+          <p><strong>CFO</strong></p>
+          <p> 그라운드 엑스, 키움은행 IPO, 안진회계법인</p>
+          <p> Sungkyunkwan University</p>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-photo">
+          <img src="/Users/jungsikkang/Desktop/website/AlexKim.jpg" alt="Alex Kim">
+        </div>
+        <div class="profile-info">
+          <h3>김현명 Alex Kim</h3>
+          <p><strong>CSO</strong></p>
+          <p> DB자산운용 주식운용</p>
+          <p> Sogang University, UCSD Rady MBA</p>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-photo">
+          <img src="/Users/jungsikkang/Desktop/website/RyanKang.jpeg" alt="Ryan Kang">
+        </div>
+        <div class="profile-info">
+          <h3>강정식 Ryan Kang</h3>
+          <p><strong>Lead Product Manager</strong></p>
+          <p> LG Electronics VS company</p>
+          <p> Korea University, Columbia University, <br>UCLA Anderson MBA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>&copy; 2024 Wealthport Inc. All rights reserved.</p>
+</div>
+
+<script>
+  // ... your existing showPage function ...
+
+  // New function to animate sections within a specific container
+  function animateSections(containerId) {
+    const container = document.getElementById(containerId);
+    const sections = container.querySelectorAll('.section');
+    let delay = 0;
+
+    sections.forEach(function(section) {
+      setTimeout(function() {
+        section.classList.add('visible');
+      }, delay);
+      delay += 500; // Increment delay for next section
+    });
+  }
+
+  // Animate the Home sections on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    animateSections('home');
+  });
+
+  // Modify the showPage function to also animate the About Us sections
+  function showPage(pageId) {
+    var pages = document.querySelectorAll('.page');
+    for (var i = 0; i < pages.length; i++) {
+      pages[i].classList.add('hidden');
+    }
+    var pageToShow = document.getElementById(pageId);
+    pageToShow.classList.remove('hidden');
+    // If the About Us page is shown, animate its sections
+    if (pageId === 'about') {
+      animateSections(pageId);
+    }
+  }
+</script>
+
+
+</body>
+</html>
